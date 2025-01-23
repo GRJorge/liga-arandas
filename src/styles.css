@@ -17,3 +17,6 @@
 .input input {
   @apply bg-transparent outline-none;
 }
+.button {
+  @apply py-2 px-4 rounded-md disabled:bg-opacity-20 hover:bg-light focus:outline-none focus:bg-light;
+}
