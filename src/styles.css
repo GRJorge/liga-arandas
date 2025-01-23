@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  @apply transition-all;
+}
+
+.input {
+  @apply border border-light rounded-md p-2 flex flex-col hover:outline focus-within:outline outline-1 outline-light;
+}
+.input label {
+  @apply text-xs font-light;
+}
+.input input {
+  @apply bg-transparent outline-none;
+}
