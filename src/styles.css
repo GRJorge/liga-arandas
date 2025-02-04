@@ -18,5 +18,15 @@
   @apply bg-transparent outline-none;
 }
 .button {
-  @apply py-2 px-4 rounded-md disabled:bg-opacity-20 hover:bg-light focus:outline-none focus:bg-light;
+  @apply py-2 px-4 rounded-md disabled:bg-opacity-30 hover:bg-light focus:outline-none focus:bg-light;
+}
+/* CHECKBOX STYLE */
+.checkbox {
+  @apply flex items-center gap-2;
+}
+.checkbox input {
+  @apply appearance-none relative cursor-pointer w-8 h-4;
+  @apply before:content-normal before:absolute before:w-8 before:h-4 before:rounded-2xl before:bg-light;
+  @apply after:content-normal after:absolute after:w-3 after:h-3 after:top-[2px] after:left-[2px] after:bg-dark-2 after:rounded-full after:transition-all;
+  @apply hover:after:bg-blue checked:after:bg-green checked:after:left-[18px];
 }
