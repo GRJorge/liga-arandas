@@ -4,6 +4,6 @@ import { HomeComponent } from './home/home.component';
 import { tokenGuard } from './guards/token.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [tokenGuard] },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: HomeComponent, title: 'Panel de administracion - Home', canActivate: [tokenGuard] },
+  { path: 'login', component: LoginComponent, title: 'Login' },
 ];
