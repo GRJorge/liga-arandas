@@ -8,7 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class LoginService {
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  constructor(private http: HttpClient, public cookieService: CookieService) {}
 
   login(admin: AdminLogin): Observable<AccessToken> {
     return this.http.post<AccessToken>('http://localhost:3000/auth/login', admin);

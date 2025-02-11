@@ -9,7 +9,9 @@ import { AdminLogin } from './login.interface';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService) {
+    loginService.cookieService.delete('token');
+  }
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
