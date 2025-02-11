@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { AdminLogin } from './login.interface';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  constructor(private loginService: LoginService, private cookieService: CookieService) {}
+  constructor(private loginService: LoginService) {}
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,7 +26,7 @@ export class LoginComponent {
 
     this.loginService.login(admin).subscribe({
       next: (token) => {
-        this.cookieService.set('token', token.accessToken, { expires: this.loginForm.get('keep')!.value! ? 30 : 1, sameSite: 'Strict' });
+        this.loginService.createCookie(token, this.loginForm.get('keep')!.value!);
       },
       error: (err) => {
         console.log(err);
