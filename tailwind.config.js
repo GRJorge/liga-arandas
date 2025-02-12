@@ -4,13 +4,20 @@ export const theme = {
   colors: {
     transparent: 'transparent',
     dark: {
-      1: '#222222',
-      2: '#3d3d3d',
+      1: '#333333',
+      2: '#242424',
+      3: '#191919',
     },
-    light: '#f3f3f3',
-    green: '#0ABF7D',
-    blue: '#0468BF',
-    yellow: '#F2B33D',
+    light: {
+      1: '#F2F2F2',
+      2: '#E3E3E3',
+      3: '#D4D4D4',
+    },
+    green: '#98C379',
+    blue: '#9CCED9',
+    yellow: '#F8DE7E',
+    red: '#FF6347',
+    purple: '#CC9CD9',
   },
   fontFamily: {
     serif: 'Lexend, serif',
