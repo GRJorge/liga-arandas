@@ -1,5 +1,5 @@
 <main class="flex justify-center items-center h-screen">
-  <form (submit)="login()" class="flex flex-col gap-4 w-1/4" [formGroup]="loginForm" >
+  <form (submit)="login()" class="flex flex-col gap-4 w-1/4 bg-light-2 py-4 px-8 rounded-md shadow-md" [formGroup]="loginForm" >
     <h1 class="font-title text-4xl text-center mb-4">Iniciar sesion</h1>
     <div class="input">
       <label for="email">CORREO</label>
@@ -9,7 +9,7 @@
       <label for="password">CONTRASENA</label>
       <input formControlName="password" type="password" id="password" />
     </div>
-    <div class="checkbox">
+    <div class="checkbox self-center">
       <input formControlName="keep" type="checkbox" id="keep" />
       <label class="text-xs font-light" for="keep">Mantener conectado</label>
     </div>
