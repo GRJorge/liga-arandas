@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FileService } from '../../file/file.service';
 import { LeaguesService } from '../leagues.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-league',
@@ -9,7 +10,7 @@ import { LeaguesService } from '../leagues.service';
   templateUrl: './create-league.component.html',
 })
 export class CreateLeagueComponent {
-  constructor(private readonly leaguesService: LeaguesService, private readonly fileService: FileService) {}
+  constructor(private readonly leaguesService: LeaguesService, private readonly fileService: FileService, private readonly router: Router) {}
 
   finalData!: FormData;
 
@@ -26,7 +27,7 @@ export class CreateLeagueComponent {
     this.finalData.append('name', this.leagueForm.get('name')!.value!);
 
     this.leaguesService.createLeague(this.finalData).subscribe((league) => {
-      alert('Liga creada');
+      this.router.navigate(['/leagues'])
     });
   }
 }
