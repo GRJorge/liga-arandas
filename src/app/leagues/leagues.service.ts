@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,9 @@ import { Observable } from 'rxjs';
 export class LeaguesService {
   constructor(private readonly http: HttpClient) {}
 
+  base = environment.apiUrl;
+
   createLeague(league: FormData) {
-    return this.http.post('http://localhost:3000/league/create', league);
+    return this.http.post(`${this.base}league/create`, league);
   }
 }
