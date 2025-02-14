@@ -1,15 +1,15 @@
 <main class="flex justify-center items-center w-full h-screen">
-  <form class="flex flex-col gap-4 px-8 py-4 bg-light-2 rounded-md shadow-md">
+  <form (ngSubmit)="submit()" [formGroup]="leagueForm" class="flex flex-col gap-4 px-8 py-4 bg-light-2 rounded-md shadow-md">
     <h1 class="text-4xl font-title text-center">Nueva Liga</h1>
     <div class="input">
       <label for="logo">Logo</label>
-      <input type="file" id="logo">
+      <input (change)="changeLogo($event)" formControlName="logo" type="file" id="logo" />
     </div>
     <div class="input">
       <label for="name">Nombre de la liga</label>
-      <input type="text" id="name">
+      <input formControlName="name" type="text" id="name" />
     </div>
-    <button class="button bg-green" type="submit">Crear</button>
+    <button [disabled]="!leagueForm.valid" class="button bg-green" type="submit">Crear</button>
     <a href="/leagues" class="button text-center bg-light-3">Volver</a>
   </form>
 </main>
