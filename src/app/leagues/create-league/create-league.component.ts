@@ -21,13 +21,14 @@ export class CreateLeagueComponent {
 
   changeLogo(event: Event) {
     this.finalData = this.fileService.createFormData(event, 'logo');
+    this.finalData.append('name', '');
   }
 
   submit() {
-    this.finalData.append('name', this.leagueForm.get('name')!.value!);
+    this.finalData.set('name', this.leagueForm.get('name')!.value!);
 
     this.leaguesService.createLeague(this.finalData).subscribe((league) => {
-      this.router.navigate(['/leagues'])
+      this.router.navigate(['/leagues']);
     });
   }
 }
