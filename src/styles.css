@@ -9,10 +9,10 @@
 }
 
 body {
-  @apply bg-light-3 font-serif text-dark-1;
+  @apply bg-dark-3 font-serif text-light-1;
 }
 .input {
-  @apply border border-dark-1 rounded-md p-2 flex flex-col hover:outline focus-within:outline outline-1 outline-dark-1;
+  @apply border border-light-3 rounded-md p-2 flex flex-col hover:outline focus-within:outline outline-1 outline-light-3;
 }
 .input label {
   @apply text-xs font-light;
@@ -21,7 +21,7 @@ body {
   @apply bg-transparent outline-none;
 }
 .button {
-  @apply py-2 px-4 rounded-md disabled:bg-opacity-75 disabled:cursor-not-allowed hover:bg-dark-1 hover:text-light-1 focus:text-light-1 focus:outline-none focus:bg-dark-1;
+  @apply py-2 px-4 rounded-md disabled:bg-opacity-75 disabled:cursor-not-allowed hover:bg-light-1 hover:text-light-1 focus:text-light-1 focus:outline-none focus:bg-light-1;
 }
 /* CHECKBOX STYLE */
 .checkbox {
@@ -29,7 +29,7 @@ body {
 }
 .checkbox input {
   @apply appearance-none relative cursor-pointer w-8 h-4;
-  @apply before:content-normal before:absolute before:w-8 before:h-4 before:rounded-2xl before:bg-dark-1;
+  @apply before:content-normal before:absolute before:w-8 before:h-4 before:rounded-2xl before:bg-light-3;
   @apply after:content-normal after:absolute after:w-3 after:h-3 after:top-[2px] after:left-[2px] after:bg-red after:rounded-full after:transition-all;
-  @apply hover:after:bg-light-1 checked:after:bg-green checked:after:left-[18px];
+  @apply hover:after:bg-dark-1 checked:after:bg-dark-1 checked:after:left-[18px];
 }
