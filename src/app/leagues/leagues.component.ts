@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LeaguesService } from './leagues.service';
 import { League } from './leagues.interface';
 import { environment } from '../../environments/environment';
@@ -10,14 +10,18 @@ import { Router, RouterLink } from '@angular/router';
   imports: [RouterLink],
   templateUrl: './leagues.component.html',
 })
-export class LeaguesComponent {
+export class LeaguesComponent implements OnInit {
   leagues?: League[];
   imgUrl = environment.apiUrl + 'uploads/';
 
-  constructor(private readonly leaguesService: LeaguesService, private readonly cookieService: CookieService, private readonly router: Router) {
-    leaguesService.getAllLeagues().subscribe((leagues) => {
+  constructor(private readonly leaguesService: LeaguesService, private readonly cookieService: CookieService, private readonly router: Router) {}
+
+  ngOnInit(): void {
+    this.leaguesService.getAllLeagues().subscribe((leagues) => {
       this.leagues = leagues;
     });
+
+    this.cookieService.delete('league');
   }
 
   navigateToPanel(idLeague: string) {
