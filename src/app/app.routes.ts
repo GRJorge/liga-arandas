@@ -3,9 +3,11 @@ import { LoginComponent } from './login/login.component';
 import { tokenGuard } from './guards/token.guard';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { CreateLeagueComponent } from './leagues/create-league/create-league.component';
+import { PanelComponent } from './panel/panel.component';
 
 export const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, title: 'Ligas', canActivate: [tokenGuard] },
   { path: 'leagues/create', component: CreateLeagueComponent, canActivate: [tokenGuard] },
   { path: 'login', component: LoginComponent, title: 'Login' },
+  { path: 'panel', component: PanelComponent, title: 'Principal Panel', canActivate: [tokenGuard] },
 ];
