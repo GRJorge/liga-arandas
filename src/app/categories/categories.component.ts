@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../components/nav/nav.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoriesService } from './categories.service';
-import { CreateCategory } from './categories.interface';
+import { Category, CreateCategory } from './categories.interface';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,10 +10,18 @@ import { CookieService } from 'ngx-cookie-service';
   imports: [NavComponent, ReactiveFormsModule],
   templateUrl: './categories.component.html',
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
   constructor(private categoriesService: CategoriesService, private cookieService: CookieService) {}
 
   showCreateForm = false;
+  categories?: Category[];
+
+  ngOnInit(): void {
+    this.categoriesService.getByLeague(this.cookieService.get('league')).subscribe((categories) => {
+      this.categories = categories;
+      console.log(this.categories)
+    });
+  }
 
   swapShowCreateForm() {
     this.showCreateForm = !this.showCreateForm;
