@@ -13,6 +13,12 @@ import { CookieService } from 'ngx-cookie-service';
 export class CategoriesComponent {
   constructor(private categoriesService: CategoriesService, private cookieService: CookieService) {}
 
+  showCreateForm = false;
+
+  swapShowCreateForm() {
+    this.showCreateForm = !this.showCreateForm;
+  }
+
   createForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
   });
