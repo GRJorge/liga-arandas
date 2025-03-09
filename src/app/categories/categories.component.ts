@@ -19,7 +19,6 @@ export class CategoriesComponent implements OnInit {
   ngOnInit(): void {
     this.categoriesService.getByLeague(this.cookieService.get('league')).subscribe((categories) => {
       this.categories = categories;
-      console.log(this.categories)
     });
   }
 

@@ -6,6 +6,7 @@ export interface CreateCategory {
 }
 
 export interface Category {
+  _id: string;
   name: string;
   league: League;
   createdAt: Date;
