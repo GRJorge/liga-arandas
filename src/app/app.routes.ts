@@ -7,6 +7,7 @@ import { PanelComponent } from './panel/panel.component';
 import { leagueGuard } from './guards/league.guard';
 import { CategoriesComponent } from './categories/categories.component';
 import { TeamsComponent } from './teams/teams.component';
+import { CreateTeamComponent } from './teams/create-team/create-team.component';
 
 export const routes: Routes = [
   { path: 'leagues', component: LeaguesComponent, title: 'Ligas', canActivate: [tokenGuard] },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'panel', component: PanelComponent, title: 'Principal Panel', canActivate: [tokenGuard, leagueGuard] },
   { path: 'categories', component: CategoriesComponent, title: 'Categories', canActivate: [tokenGuard, leagueGuard] },
   { path: 'teams', component: TeamsComponent, title: 'Teams', canActivate: [tokenGuard, leagueGuard] },
+  { path: 'teams/create', component: CreateTeamComponent, title: 'Create team', canActivate: [tokenGuard, leagueGuard] },
 ];
