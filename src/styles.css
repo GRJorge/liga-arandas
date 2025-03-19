@@ -17,7 +17,7 @@ body {
 .input label {
   @apply text-xs font-light;
 }
-.input input {
+.input input, .input select {
   @apply bg-transparent outline-none;
 }
 .button {
