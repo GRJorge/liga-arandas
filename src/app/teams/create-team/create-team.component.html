@@ -1,7 +1,7 @@
 <main class="flex w-full h-screen justify-center items-center">
   <article class="p-4 bg-dark-2 rounded-md shadow-md">
     <h1 class="font-title text-3xl text-center mb-4">Crear nuevo equipo</h1>
-    <form class="flex flex-col gap-4" [formGroup]="createForm">
+    <form class="flex flex-col gap-4" [formGroup]="createForm" (ngSubmit)="submit()">
       <div class="input">
         <label for="name">Nombre</label>
         <input formControlName="name" type="text" id="name" />
@@ -12,12 +12,14 @@
       </div>
       <div class="input">
         <label for="shield">Escudo</label>
-        <input formControlName="shield" type="file" id="shield" />
+        <input formControlName="shield" type="file" id="shield" (change)="changeShield($event)" />
       </div>
       <div class="input">
         <label for="category">Division</label>
         <select formControlName="category" id="category">
-          <option value="division 1">Division 1</option>
+          @for (category of categories; track category._id) {
+            <option [value]="category._id">{{ category.name }}</option>
+          }
         </select>
       </div>
       <div class="flex justify-end gap-2">
