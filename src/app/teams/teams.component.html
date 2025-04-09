@@ -1,9 +1,24 @@
 <main class="flex">
   <navigation />
   <section class="p-4 w-full">
-    <header>
+    <header class="flex justify-between">
       <h1 class="text-2xl font-bold">Equipos</h1>
       <a routerLink="create" class="button bg-green">Nuevo equipo</a>
     </header>
+    <section class="grid grid-cols-4 gap-4">
+      @for (team of teams; track team._id) {
+      <article class="bg-dark-2 rounded-lg shadow-lg p-4 flex flex-col items-center gap-2">
+        <img class="w-32 rounded-full" [src]="imgUrl + team.shield" />
+        <div>
+          <span>{{ team.name }}</span>
+          <span class="ml-2 font-bold">{{ team.shortName }}</span>
+        </div>
+        <span>{{ team.active }}</span>
+        <div>
+          <button class="button bg-yellow text-dark-3">Editar</button>
+        </div>
+      </article>
+      }
+    </section>
   </section>
 </main>
